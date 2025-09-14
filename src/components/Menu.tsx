@@ -91,44 +91,85 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
         activeCategory={activeCategory}
         onCategoryClick={handleCategoryClick}
       />
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <div className="text-center mb-12">
-        <h2 className="text-4xl font-noto font-semibold text-black mb-4">Our Menu</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
-          Discover our selection of authentic dim sum, flavorful noodles, and traditional Asian dishes, 
-          all prepared with fresh ingredients and authentic techniques.
-        </p>
-      </div>
+      
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-brew-black via-brew-dark to-brew-black py-20 px-4 overflow-hidden">
+        <div className="absolute inset-0 paper-texture-dark opacity-20"></div>
+        <div className="relative max-w-7xl mx-auto text-center">
+          <h1 className="text-6xl md:text-7xl font-noto font-bold text-brew-off-white mb-6 tracking-tight">
+            Brew&Co. 
+          </h1>
+          <p className="text-xl md:text-2xl text-brew-light mb-8 max-w-3xl mx-auto leading-relaxed">
+            Artisanal Coffee & Pastries
+          </p>
+          <div className="w-24 h-1 bg-brew-accent mx-auto"></div>
+        </div>
+      </section>
 
-      {categories.map((category) => {
-        const categoryItems = menuItems.filter(item => item.category === category.id);
-        
-        if (categoryItems.length === 0) return null;
-        
-        return (
-          <section key={category.id} id={category.id} className="mb-16">
-            <div className="flex items-center mb-8">
-              <span className="text-3xl mr-3">{category.icon}</span>
-              <h3 className="text-3xl font-noto font-medium text-black">{category.name}</h3>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {categoryItems.map((item) => {
-                const cartItem = cartItems.find(cartItem => cartItem.id === item.id);
-                return (
-                  <MenuItemCard
-                    key={item.id}
-                    item={item}
-                    onAddToCart={addToCart}
-                    quantity={cartItem?.quantity || 0}
-                    onUpdateQuantity={updateQuantity}
-                  />
-                );
-              })}
-            </div>
-          </section>
-        );
-      })}
+      {/* Category Navigation */}
+      <section className="sticky top-16 z-30 bg-brew-off-white/95 backdrop-blur-md border-b border-brew-gray/10 shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="hidden md:flex items-center justify-center space-x-8 py-4">
+            {categories.map((category) => {
+              const categoryItems = menuItems.filter(item => item.category === category.id);
+              if (categoryItems.length === 0) return null;
+              
+              return (
+                <button
+                  key={category.id}
+                  onClick={() => handleCategoryClick(category.id)}
+                  className={`flex items-center space-x-3 px-6 py-3 rounded-full transition-all duration-300 ${
+                    activeCategory === category.id
+                      ? 'bg-brew-black text-brew-off-white shadow-lg transform scale-105'
+                      : 'text-brew-gray hover:text-brew-black hover:bg-brew-light'
+                  }`}
+                >
+                  <span className="text-xl">{category.icon}</span>
+                  <span className="font-medium">{category.name}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {categories.map((category) => {
+          const categoryItems = menuItems.filter(item => item.category === category.id);
+          
+          if (categoryItems.length === 0) return null;
+          
+          return (
+            <section key={category.id} id={category.id} className="mb-24">
+              {/* Category Header */}
+              <div className="text-center mb-16">
+                <div className="inline-flex items-center space-x-4 mb-6">
+                  <span className="text-4xl">{category.icon}</span>
+                  <h2 className="text-4xl md:text-5xl font-noto font-bold text-brew-black tracking-tight">
+                    {category.name}
+                  </h2>
+                </div>
+                <div className="w-16 h-1 bg-brew-accent mx-auto"></div>
+              </div>
+              
+              {/* Menu Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                {categoryItems.map((item) => {
+                  const cartItem = cartItems.find(cartItem => cartItem.id === item.id);
+                  return (
+                    <MenuItemCard
+                      key={item.id}
+                      item={item}
+                      onAddToCart={addToCart}
+                      quantity={cartItem?.quantity || 0}
+                      onUpdateQuantity={updateQuantity}
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          );
+        })}
       </main>
     </>
   );

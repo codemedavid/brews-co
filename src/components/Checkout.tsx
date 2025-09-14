@@ -20,7 +20,6 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
   const [pickupTime, setPickupTime] = useState('5-10');
   const [customTime, setCustomTime] = useState('');
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('gcash');
-  const [referenceNumber, setReferenceNumber] = useState('');
   const [notes, setNotes] = useState('');
 
   React.useEffect(() => {
@@ -46,7 +45,7 @@ const Checkout: React.FC<CheckoutProps> = ({ cartItems, totalPrice, onBack }) =>
       : '';
     
     const orderDetails = `
-🛒 NOM SUM ORDER
+🛒 BREW&CO.  ORDER
 
 👤 Customer: ${customerName}
 📞 Contact: ${contactNumber}
@@ -80,11 +79,11 @@ ${serviceType === 'delivery' ? `🛵 DELIVERY FEE:` : ''}
 
 ${notes ? `📝 Notes: ${notes}` : ''}
 
-Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
+Please confirm this order to proceed. Thank you for choosing Brew&Co. ! ☕
     `.trim();
 
     const encodedMessage = encodeURIComponent(orderDetails);
-    const messengerUrl = `https://m.me/100082987099531?text=${encodedMessage}`;
+    const messengerUrl = `https://m.me/61580448542963?text=${encodedMessage}`;
     
     window.open(messengerUrl, '_blank');
     
@@ -98,41 +97,41 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
         <div className="flex items-center mb-8">
           <button
             onClick={onBack}
-            className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
+            className="flex items-center space-x-2 text-brew-gray hover:text-brew-black transition-colors duration-200"
           >
             <ArrowLeft className="h-5 w-5" />
             <span>Back to Cart</span>
           </button>
-          <h1 className="text-3xl font-noto font-semibold text-black ml-8">Order Details</h1>
+          <h1 className="text-3xl font-noto font-semibold text-brew-black ml-8">Order Details</h1>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Order Summary */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-2xl font-noto font-medium text-black mb-6">Order Summary</h2>
+          <div className="bg-brew-off-white rounded-xl shadow-sm p-6 border border-brew-gray/10">
+            <h2 className="text-2xl font-noto font-medium text-brew-black mb-6">Order Summary</h2>
             
             <div className="space-y-4 mb-6">
               {cartItems.map((item) => (
-                <div key={item.id} className="flex items-center justify-between py-2 border-b border-red-100">
+                <div key={item.id} className="flex items-center justify-between py-2 border-b border-brew-gray/20">
                   <div>
-                    <h4 className="font-medium text-black">{item.name}</h4>
+                    <h4 className="font-medium text-brew-black">{item.name}</h4>
                     {item.selectedVariation && (
-                      <p className="text-sm text-gray-600">Size: {item.selectedVariation.name}</p>
+                      <p className="text-sm text-brew-gray">Size: {item.selectedVariation.name}</p>
                     )}
                     {item.selectedAddOns && item.selectedAddOns.length > 0 && (
-                      <p className="text-sm text-gray-600">
+                      <p className="text-sm text-brew-gray">
                         Add-ons: {item.selectedAddOns.map(addOn => addOn.name).join(', ')}
                       </p>
                     )}
-                    <p className="text-sm text-gray-600">₱{item.totalPrice} x {item.quantity}</p>
+                    <p className="text-sm text-brew-gray">₱{item.totalPrice} x {item.quantity}</p>
                   </div>
-                  <span className="font-semibold text-black">₱{item.totalPrice * item.quantity}</span>
+                  <span className="font-semibold text-brew-black">₱{item.totalPrice * item.quantity}</span>
                 </div>
               ))}
             </div>
             
-            <div className="border-t border-red-200 pt-4">
-              <div className="flex items-center justify-between text-2xl font-noto font-semibold text-black">
+            <div className="border-t border-brew-gray/20 pt-4">
+              <div className="flex items-center justify-between text-2xl font-noto font-semibold text-brew-black">
                 <span>Total:</span>
                 <span>₱{totalPrice}</span>
               </div>
@@ -140,30 +139,30 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
           </div>
 
           {/* Customer Details Form */}
-          <div className="bg-white rounded-xl shadow-sm p-6">
-            <h2 className="text-2xl font-noto font-medium text-black mb-6">Customer Information</h2>
+          <div className="bg-brew-off-white rounded-xl shadow-sm p-6 border border-brew-gray/10">
+            <h2 className="text-2xl font-noto font-medium text-brew-black mb-6">Customer Information</h2>
             
             <form className="space-y-6">
               {/* Customer Information */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">Full Name *</label>
+                <label className="block text-sm font-medium text-brew-black mb-2">Full Name *</label>
                 <input
                   type="text"
                   value={customerName}
                   onChange={(e) => setCustomerName(e.target.value)}
-                  className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                   placeholder="Enter your full name"
                   required
                 />
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-black mb-2">Contact Number *</label>
+                <label className="block text-sm font-medium text-brew-black mb-2">Contact Number *</label>
                 <input
                   type="tel"
                   value={contactNumber}
                   onChange={(e) => setContactNumber(e.target.value)}
-                  className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                   placeholder="09XX XXX XXXX"
                   required
                 />
@@ -171,7 +170,7 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
 
               {/* Service Type */}
               <div>
-                <label className="block text-sm font-medium text-black mb-3">Service Type *</label>
+                <label className="block text-sm font-medium text-brew-black mb-3">Service Type *</label>
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     { value: 'dine-in', label: 'Dine In', icon: '🪑' },
@@ -184,8 +183,8 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                       onClick={() => setServiceType(option.value as ServiceType)}
                       className={`p-4 rounded-lg border-2 transition-all duration-200 ${
                         serviceType === option.value
-                          ? 'border-red-600 bg-red-600 text-white'
-                          : 'border-red-300 bg-white text-gray-700 hover:border-red-400'
+                          ? 'border-brew-black bg-brew-black text-brew-off-white'
+                          : 'border-brew-gray/30 bg-brew-off-white text-brew-gray hover:border-brew-accent'
                       }`}
                     >
                       <div className="text-2xl mb-1">{option.icon}</div>
@@ -198,7 +197,7 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
               {/* Pickup Time Selection */}
               {serviceType === 'pickup' && (
                 <div>
-                  <label className="block text-sm font-medium text-black mb-3">Pickup Time *</label>
+                  <label className="block text-sm font-medium text-brew-black mb-3">Pickup Time *</label>
                   <div className="space-y-3">
                     <div className="grid grid-cols-2 gap-3">
                       {[
@@ -213,8 +212,8 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                           onClick={() => setPickupTime(option.value)}
                           className={`p-3 rounded-lg border-2 transition-all duration-200 text-sm ${
                             pickupTime === option.value
-                              ? 'border-red-600 bg-red-600 text-white'
-                              : 'border-red-300 bg-white text-gray-700 hover:border-red-400'
+                              ? 'border-brew-black bg-brew-black text-brew-off-white'
+                              : 'border-brew-gray/30 bg-brew-off-white text-brew-gray hover:border-brew-accent'
                           }`}
                         >
                           <Clock className="h-4 w-4 mx-auto mb-1" />
@@ -228,7 +227,7 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                         type="text"
                         value={customTime}
                         onChange={(e) => setCustomTime(e.target.value)}
-                        className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                        className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                         placeholder="e.g., 45 minutes, 1 hour, 2:30 PM"
                         required
                       />
@@ -241,11 +240,11 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
               {serviceType === 'delivery' && (
                 <>
                   <div>
-                    <label className="block text-sm font-medium text-black mb-2">Delivery Address *</label>
+                    <label className="block text-sm font-medium text-brew-black mb-2">Delivery Address *</label>
                     <textarea
                       value={address}
                       onChange={(e) => setAddress(e.target.value)}
-                      className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                       placeholder="Enter your complete delivery address"
                       rows={3}
                       required
@@ -253,12 +252,12 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                   </div>
                   
                   <div>
-                    <label className="block text-sm font-medium text-black mb-2">Landmark</label>
+                    <label className="block text-sm font-medium text-brew-black mb-2">Landmark</label>
                     <input
                       type="text"
                       value={landmark}
                       onChange={(e) => setLandmark(e.target.value)}
-                      className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                      className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                       placeholder="e.g., Near McDonald's, Beside 7-Eleven, In front of school"
                     />
                   </div>
@@ -267,11 +266,11 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
 
               {/* Special Notes */}
               <div>
-                <label className="block text-sm font-medium text-black mb-2">Special Instructions</label>
+                <label className="block text-sm font-medium text-brew-black mb-2">Special Instructions</label>
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  className="w-full px-4 py-3 border border-red-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-200"
+                  className="w-full px-4 py-3 border border-brew-gray/30 rounded-lg focus:ring-2 focus:ring-brew-accent focus:border-transparent transition-all duration-200"
                   placeholder="Any special requests or notes..."
                   rows={3}
                 />
@@ -282,8 +281,8 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                 disabled={!isDetailsValid}
                 className={`w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform ${
                   isDetailsValid
-                    ? 'bg-red-600 text-white hover:bg-red-700 hover:scale-[1.02]'
-                    : 'bg-gray-300 text-gray-500 cursor-not-allowed'
+                    ? 'bg-brew-black text-brew-off-white hover:bg-brew-dark hover:scale-[1.02] border border-brew-accent/20'
+                    : 'bg-brew-gray/30 text-brew-gray cursor-not-allowed'
                 }`}
               >
                 Proceed to Payment
@@ -301,18 +300,18 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
       <div className="flex items-center mb-8">
         <button
           onClick={() => setStep('details')}
-          className="flex items-center space-x-2 text-gray-600 hover:text-black transition-colors duration-200"
+          className="flex items-center space-x-2 text-brew-gray hover:text-brew-black transition-colors duration-200"
         >
           <ArrowLeft className="h-5 w-5" />
           <span>Back to Details</span>
         </button>
-        <h1 className="text-3xl font-noto font-semibold text-black ml-8">Payment</h1>
+        <h1 className="text-3xl font-noto font-semibold text-brew-black ml-8">Payment</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Payment Method Selection */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-2xl font-noto font-medium text-black mb-6">Choose Payment Method</h2>
+        <div className="bg-brew-off-white rounded-xl shadow-sm p-6 border border-brew-gray/10">
+          <h2 className="text-2xl font-noto font-medium text-brew-black mb-6">Choose Payment Method</h2>
           
           <div className="grid grid-cols-1 gap-4 mb-6">
             {paymentMethods.map((method) => (
@@ -322,8 +321,8 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                 onClick={() => setPaymentMethod(method.id as PaymentMethod)}
                 className={`p-4 rounded-lg border-2 transition-all duration-200 flex items-center space-x-3 ${
                   paymentMethod === method.id
-                    ? 'border-red-600 bg-red-600 text-white'
-                    : 'border-red-300 bg-white text-gray-700 hover:border-red-400'
+                    ? 'border-brew-black bg-brew-black text-brew-off-white'
+                    : 'border-brew-gray/30 bg-brew-off-white text-brew-gray hover:border-brew-accent'
                 }`}
               >
                 <span className="text-2xl">💳</span>
@@ -334,71 +333,71 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
 
           {/* Payment Details with QR Code */}
           {selectedPaymentMethod && (
-            <div className="bg-red-50 rounded-lg p-6 mb-6">
-              <h3 className="font-medium text-black mb-4">Payment Details</h3>
+            <div className="bg-brew-light rounded-lg p-6 mb-6 border border-brew-gray/20">
+              <h3 className="font-medium text-brew-black mb-4">Payment Details</h3>
               <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
                 <div className="flex-1">
-                  <p className="text-sm text-gray-600 mb-1">{selectedPaymentMethod.name}</p>
-                  <p className="font-mono text-black font-medium">{selectedPaymentMethod.account_number}</p>
-                  <p className="text-sm text-gray-600 mb-3">Account Name: {selectedPaymentMethod.account_name}</p>
-                  <p className="text-xl font-semibold text-black">Amount: ₱{totalPrice}</p>
+                  <p className="text-sm text-brew-gray mb-1">{selectedPaymentMethod.name}</p>
+                  <p className="font-mono text-brew-black font-medium">{selectedPaymentMethod.account_number}</p>
+                  <p className="text-sm text-brew-gray mb-3">Account Name: {selectedPaymentMethod.account_name}</p>
+                  <p className="text-xl font-semibold text-brew-black">Amount: ₱{totalPrice}</p>
                 </div>
                 <div className="flex-shrink-0">
                   <img 
                     src={selectedPaymentMethod.qr_code_url} 
                     alt={`${selectedPaymentMethod.name} QR Code`}
-                    className="w-32 h-32 rounded-lg border-2 border-red-300 shadow-sm"
+                    className="w-32 h-32 rounded-lg border-2 border-brew-gray/30 shadow-sm"
                     onError={(e) => {
                       e.currentTarget.src = 'https://images.pexels.com/photos/8867482/pexels-photo-8867482.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop';
                     }}
                   />
-                  <p className="text-xs text-gray-500 text-center mt-2">Scan to pay</p>
+                  <p className="text-xs text-brew-gray text-center mt-2">Scan to pay</p>
                 </div>
               </div>
             </div>
           )}
 
           {/* Reference Number */}
-          <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
-            <h4 className="font-medium text-black mb-2">📸 Payment Proof Required</h4>
-            <p className="text-sm text-gray-700">
+          <div className="bg-brew-light border border-brew-gray/20 rounded-lg p-4">
+            <h4 className="font-medium text-brew-black mb-2">📸 Payment Proof Required</h4>
+            <p className="text-sm text-brew-gray">
               After making your payment, please take a screenshot of your payment receipt and attach it when you send your order via Messenger. This helps us verify and process your order quickly.
             </p>
           </div>
         </div>
 
         {/* Order Summary */}
-        <div className="bg-white rounded-xl shadow-sm p-6">
-          <h2 className="text-2xl font-noto font-medium text-black mb-6">Final Order Summary</h2>
+        <div className="bg-brew-off-white rounded-xl shadow-sm p-6 border border-brew-gray/10">
+          <h2 className="text-2xl font-noto font-medium text-brew-black mb-6">Final Order Summary</h2>
           
           <div className="space-y-4 mb-6">
-            <div className="bg-red-50 rounded-lg p-4">
-              <h4 className="font-medium text-black mb-2">Customer Details</h4>
-              <p className="text-sm text-gray-600">Name: {customerName}</p>
-              <p className="text-sm text-gray-600">Contact: {contactNumber}</p>
-              <p className="text-sm text-gray-600">Service: {serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}</p>
+            <div className="bg-brew-light rounded-lg p-4 border border-brew-gray/20">
+              <h4 className="font-medium text-brew-black mb-2">Customer Details</h4>
+              <p className="text-sm text-brew-gray">Name: {customerName}</p>
+              <p className="text-sm text-brew-gray">Contact: {contactNumber}</p>
+              <p className="text-sm text-brew-gray">Service: {serviceType.charAt(0).toUpperCase() + serviceType.slice(1)}</p>
               {serviceType === 'delivery' && (
                 <>
-                  <p className="text-sm text-gray-600">Address: {address}</p>
-                  {landmark && <p className="text-sm text-gray-600">Landmark: {landmark}</p>}
+                  <p className="text-sm text-brew-gray">Address: {address}</p>
+                  {landmark && <p className="text-sm text-brew-gray">Landmark: {landmark}</p>}
                 </>
               )}
               {serviceType === 'pickup' && (
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-brew-gray">
                   Pickup Time: {pickupTime === 'custom' ? customTime : `${pickupTime} minutes`}
                 </p>
               )}
             </div>
 
             {cartItems.map((item) => (
-              <div key={item.id} className="flex items-center justify-between py-2 border-b border-red-100">
+              <div key={item.id} className="flex items-center justify-between py-2 border-b border-brew-gray/20">
                 <div>
-                  <h4 className="font-medium text-black">{item.name}</h4>
+                  <h4 className="font-medium text-brew-black">{item.name}</h4>
                   {item.selectedVariation && (
-                    <p className="text-sm text-gray-600">Size: {item.selectedVariation.name}</p>
+                    <p className="text-sm text-brew-gray">Size: {item.selectedVariation.name}</p>
                   )}
                   {item.selectedAddOns && item.selectedAddOns.length > 0 && (
-                    <p className="text-sm text-gray-600">
+                    <p className="text-sm text-brew-gray">
                       Add-ons: {item.selectedAddOns.map(addOn => 
                         addOn.quantity && addOn.quantity > 1 
                           ? `${addOn.name} x${addOn.quantity}`
@@ -406,15 +405,15 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
                       ).join(', ')}
                     </p>
                   )}
-                  <p className="text-sm text-gray-600">₱{item.totalPrice} x {item.quantity}</p>
+                  <p className="text-sm text-brew-gray">₱{item.totalPrice} x {item.quantity}</p>
                 </div>
-                <span className="font-semibold text-black">₱{item.totalPrice * item.quantity}</span>
+                <span className="font-semibold text-brew-black">₱{item.totalPrice * item.quantity}</span>
               </div>
             ))}
           </div>
           
-          <div className="border-t border-red-200 pt-4 mb-6">
-            <div className="flex items-center justify-between text-2xl font-noto font-semibold text-black">
+          <div className="border-t border-brew-gray/20 pt-4 mb-6">
+            <div className="flex items-center justify-between text-2xl font-noto font-semibold text-brew-black">
               <span>Total:</span>
               <span>₱{totalPrice}</span>
             </div>
@@ -422,12 +421,12 @@ Please confirm this order to proceed. Thank you for choosing Nom Sum! 🥟
 
           <button
             onClick={handlePlaceOrder}
-            className="w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform bg-red-600 text-white hover:bg-red-700 hover:scale-[1.02]"
+            className="w-full py-4 rounded-xl font-medium text-lg transition-all duration-200 transform bg-brew-black text-brew-off-white hover:bg-brew-dark hover:scale-[1.02] border border-brew-accent/20"
           >
             Place Order via Messenger
           </button>
           
-          <p className="text-xs text-gray-500 text-center mt-3">
+          <p className="text-xs text-brew-gray text-center mt-3">
             You'll be redirected to Facebook Messenger to confirm your order. Don't forget to attach your payment screenshot!
           </p>
         </div>

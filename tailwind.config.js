@@ -4,6 +4,15 @@ export default {
   theme: {
     extend: {
       colors: {
+        // Brew&Co.  Brand Colors
+        'brew-black': '#1a1a1a',
+        'brew-dark': '#2d2d2d',
+        'brew-gray': '#4a4a4a',
+        'brew-light': '#f8f8f8',
+        'brew-off-white': '#fafafa',
+        'brew-paper': '#f5f5f0',
+        'brew-accent': '#d4af37', // Gold accent for highlights
+        // Legacy colors for compatibility
         red: {
           50: '#fef2f2',
           100: '#fee2e2',

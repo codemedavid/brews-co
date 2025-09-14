@@ -2,19 +2,19 @@ import React from 'react';
 
 const Hero: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-br from-yellow-50 to-red-50 py-20 px-4">
+    <section className="relative paper-texture py-20 px-4">
       <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl md:text-6xl font-noto font-semibold text-black mb-6 animate-fade-in">
-         Authentic Taiwanese Dimsum
-          <span className="block text-red-600 mt-2">Nom Sum</span>
+        <h1 className="text-5xl md:text-6xl font-noto font-semibold text-brew-black mb-6 animate-fade-in">
+         Artisanal Coffee & Pastries
+          <span className="block text-brew-accent mt-2">Brew&Co. </span>
         </h1>
-        <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto animate-slide-up">
-          Timeless Taiwanese Flavors, Freshly Made
+        <p className="text-xl text-brew-gray mb-8 max-w-2xl mx-auto animate-slide-up">
+          Crafted with Passion, Served with Care
         </p>
         <div className="flex justify-center">
           <a 
-            href="#dim-sum"
-            className="bg-red-600 text-white px-8 py-3 rounded-full hover:bg-red-700 transition-all duration-300 transform hover:scale-105 font-medium"
+            href="#coffee"
+            className="bg-brew-black text-brew-off-white px-8 py-3 rounded-full hover:bg-brew-dark transition-all duration-300 transform hover:scale-105 font-medium border border-brew-accent/20"
           >
             Explore Menu
           </a>
