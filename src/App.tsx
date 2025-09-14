@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useCart } from './hooks/useCart';
 import Header from './components/Header';
 import Menu from './components/Menu';
-import Cart from './components/Cart';
 import Checkout from './components/Checkout';
 import FloatingCartButton from './components/FloatingCartButton';
 import AdminDashboard from './components/AdminDashboard';
@@ -12,9 +11,9 @@ import { useMenu } from './hooks/useMenu';
 function MainApp() {
   const cart = useCart();
   const { menuItems } = useMenu();
-  const [currentView, setCurrentView] = React.useState<'menu' | 'cart' | 'checkout'>('menu');
+  const [currentView, setCurrentView] = React.useState<'menu' | 'checkout'>('menu');
 
-  const handleViewChange = (view: 'menu' | 'cart' | 'checkout') => {
+  const handleViewChange = (view: 'menu' | 'checkout') => {
     setCurrentView(view);
   };
 
@@ -22,7 +21,7 @@ function MainApp() {
     <div className="min-h-screen paper-texture-subtle font-inter">
       <Header 
         cartItemsCount={cart.getTotalItems()}
-        onCartClick={() => handleViewChange('cart')}
+        onCartClick={() => handleViewChange('checkout')}
         onMenuClick={() => handleViewChange('menu')}
       />
       
@@ -35,30 +34,18 @@ function MainApp() {
         />
       )}
       
-      {currentView === 'cart' && (
-        <Cart 
-          cartItems={cart.cartItems}
-          updateQuantity={cart.updateQuantity}
-          removeFromCart={cart.removeFromCart}
-          clearCart={cart.clearCart}
-          getTotalPrice={cart.getTotalPrice}
-          onContinueShopping={() => handleViewChange('menu')}
-          onCheckout={() => handleViewChange('checkout')}
-        />
-      )}
-      
       {currentView === 'checkout' && (
         <Checkout 
           cartItems={cart.cartItems}
           totalPrice={cart.getTotalPrice()}
-          onBack={() => handleViewChange('cart')}
+          onBack={() => handleViewChange('menu')}
         />
       )}
       
       {currentView === 'menu' && (
         <FloatingCartButton 
           itemCount={cart.getTotalItems()}
-          onCartClick={() => handleViewChange('cart')}
+          onCartClick={() => handleViewChange('checkout')}
         />
       )}
     </div>

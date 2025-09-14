@@ -120,9 +120,9 @@ const Cart: React.FC<CartProps> = ({
         
         <button
           onClick={onCheckout}
-          className="w-full bg-brew-black text-brew-off-white py-4 rounded-xl hover:bg-brew-dark transition-all duration-200 transform hover:scale-[1.02] font-medium text-lg border border-brew-accent/20"
+          className="w-full bg-gradient-to-r from-brew-black to-brew-dark text-brew-off-white py-4 rounded-xl hover:from-brew-dark hover:to-brew-black transition-all duration-300 transform hover:scale-[1.02] font-bold text-lg shadow-lg hover:shadow-xl"
         >
-          Proceed to Checkout
+          Order via Messenger
         </button>
       </div>
     </div>
