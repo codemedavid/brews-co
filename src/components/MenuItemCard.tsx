@@ -172,7 +172,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
                 onClick={handleAddToCart}
                 className="bg-gradient-to-r from-brew-black to-brew-dark text-brew-off-white px-6 py-3 rounded-xl hover:from-brew-dark hover:to-brew-black transition-all duration-300 transform hover:scale-105 font-medium shadow-lg hover:shadow-xl"
               >
-                {item.variations?.length || item.addOns?.length ? 'Customize' : 'Add to Cart'}
+                {item.variations?.length || item.addOns?.length ? 'Add to Cart' : 'Add to Cart'}
               </button>
             ) : (
               <div className="flex items-center space-x-2 bg-brew-light rounded-xl p-1 shadow-inner">
