@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ cartItemsCount, onCartClick, onMenuClic
             className="flex items-center space-x-2 text-brew-black hover:text-brew-accent transition-colors duration-200"
           >
             <img src="/logo.jpg" className="w-10 h-10 rounded-full"/>
-            <h1 className="text-2xl font-noto font-semibold">Brew&Co. </h1>
+            <h1 className="text-2xl font-art-school font-bold">Brew&Co.</h1>
           </button>
           
           <nav className="hidden md:flex items-center space-x-8">

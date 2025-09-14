@@ -16,7 +16,7 @@ const MobileNav: React.FC<MobileNavProps> = ({ activeCategory, onCategoryClick }
           <button
             key={category.id}
             onClick={() => onCategoryClick(category.id)}
-            className={`flex-shrink-0 flex items-center space-x-3 px-6 py-3 rounded-xl mr-3 transition-all duration-300 font-medium ${
+            className={`flex-shrink-0 flex items-center space-x-3 px-6 py-3 rounded-xl mr-3 transition-all duration-300 font-art-school font-medium ${
               activeCategory === category.id
                 ? 'bg-gradient-to-r from-brew-black to-brew-dark text-brew-off-white shadow-lg transform scale-105'
                 : 'bg-brew-light text-brew-gray hover:bg-brew-gray/20 hover:text-brew-black'

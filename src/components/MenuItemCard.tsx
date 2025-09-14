@@ -136,7 +136,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
         {/* Content */}
         <div className="p-6">
           <div className="mb-4">
-            <h4 className="text-xl font-noto font-bold text-brew-black mb-2 group-hover:text-brew-accent transition-colors duration-300">
+            <h4 className="text-xl font-art-school font-bold text-brew-black mb-2 group-hover:text-brew-accent transition-colors duration-300">
               {item.name}
             </h4>
             <p className={`text-sm leading-relaxed ${!item.available ? 'text-brew-gray/60' : 'text-brew-gray'} line-clamp-2`}>
@@ -147,7 +147,7 @@ const MenuItemCard: React.FC<MenuItemCardProps> = ({
           {/* Price and Actions */}
           <div className="flex items-center justify-between mb-4">
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-brew-black">
+              <span className="text-2xl font-art-school font-bold text-brew-black">
                 ₱{item.basePrice}
                 {item.variations && item.variations.length > 0 && (
                   <span className="text-sm text-brew-gray/70 ml-1 font-normal">starting</span>

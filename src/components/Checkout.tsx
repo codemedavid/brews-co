@@ -73,13 +73,13 @@ Please confirm this order to proceed. Thank you for choosing Brew&Co.! ☕
           <ArrowLeft className="h-5 w-5" />
           <span>Back to Cart</span>
         </button>
-        <h1 className="text-3xl font-noto font-bold text-brew-black ml-8">Quick Order</h1>
+        <h1 className="text-3xl font-art-school font-bold text-brew-black ml-8">Quick Order</h1>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Order Summary */}
         <div className="bg-brew-off-white rounded-2xl shadow-lg p-6 border border-brew-gray/10">
-          <h2 className="text-2xl font-noto font-bold text-brew-black mb-6">Order Summary</h2>
+          <h2 className="text-2xl font-art-school font-bold text-brew-black mb-6">Order Summary</h2>
           
           <div className="space-y-4 mb-6">
             {cartItems.map((item) => (
@@ -106,7 +106,7 @@ Please confirm this order to proceed. Thank you for choosing Brew&Co.! ☕
           </div>
           
           <div className="border-t border-brew-gray/20 pt-4">
-            <div className="flex items-center justify-between text-2xl font-noto font-bold text-brew-black">
+            <div className="flex items-center justify-between text-2xl font-art-school font-bold text-brew-black">
               <span>Total:</span>
               <span>₱{totalPrice}</span>
             </div>
@@ -115,7 +115,7 @@ Please confirm this order to proceed. Thank you for choosing Brew&Co.! ☕
 
         {/* Quick Order Form */}
         <div className="bg-brew-off-white rounded-2xl shadow-lg p-6 border border-brew-gray/10">
-          <h2 className="text-2xl font-noto font-bold text-brew-black mb-6">Order Details</h2>
+          <h2 className="text-2xl font-art-school font-bold text-brew-black mb-6">Order Details</h2>
           
           <form className="space-y-6">
             {/* Customer Name */}

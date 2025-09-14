@@ -96,10 +96,10 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
       <section className="relative bg-gradient-to-br from-brew-black via-brew-dark to-brew-black py-20 px-4 overflow-hidden">
         <div className="absolute inset-0 paper-texture-dark opacity-20"></div>
         <div className="relative max-w-7xl mx-auto text-center">
-          <h1 className="text-6xl md:text-7xl font-noto font-bold text-brew-off-white mb-6 tracking-tight">
-            Brew&Co. 
+          <h1 className="text-6xl md:text-7xl art-school-title text-brew-off-white mb-6">
+            Brew&Co.
           </h1>
-          <p className="text-xl md:text-2xl text-brew-light mb-8 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl art-school-subtitle text-brew-light mb-8 max-w-3xl mx-auto">
             Artisanal Coffee & Pastries
           </p>
           <div className="w-24 h-1 bg-brew-accent mx-auto"></div>
@@ -145,7 +145,7 @@ const Menu: React.FC<MenuProps> = ({ menuItems, addToCart, cartItems, updateQuan
               <div className="text-center mb-16">
                 <div className="inline-flex items-center space-x-4 mb-6">
                   <span className="text-4xl">{category.icon}</span>
-                  <h2 className="text-4xl md:text-5xl font-noto font-bold text-brew-black tracking-tight">
+                  <h2 className="text-4xl md:text-5xl art-school-title text-brew-black">
                     {category.name}
                   </h2>
                 </div>

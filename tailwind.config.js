@@ -40,7 +40,10 @@ export default {
       },
       fontFamily: {
         'inter': ['Inter', 'sans-serif'],
-        'noto': ['Noto Serif', 'serif']
+        'noto': ['Noto Serif', 'serif'],
+        'art-school': ['Art School Dropout', 'cursive'],
+        'art-school-skinny': ['Art School Dropout', 'cursive'],
+        'art-school-doodles': ['Art School Dropout Doodles', 'cursive']
       },
       animation: {
         'fade-in': 'fadeIn 0.5s ease-in-out',

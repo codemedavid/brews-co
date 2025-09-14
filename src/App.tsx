@@ -18,7 +18,7 @@ function MainApp() {
   };
 
   return (
-    <div className="min-h-screen paper-texture-subtle font-inter">
+    <div className="min-h-screen paper-texture-subtle font-art-school">
       <Header 
         cartItemsCount={cart.getTotalItems()}
         onCartClick={() => handleViewChange('checkout')}

@@ -2,6 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Custom Fonts */
+@font-face {
+  font-family: 'Art School Dropout';
+  src: url('/fonts/ARTSCHOOLDROPOUT-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Art School Dropout';
+  src: url('/fonts/ARTSCHOOLDROPOUT-RegularItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Art School Dropout';
+  src: url('/fonts/ARTSCHOOLDROPOUT-Skinny.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Art School Dropout';
+  src: url('/fonts/ARTSCHOOLDROPOUT-SkinnyItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Art School Dropout Doodles';
+  src: url('/fonts/ARTSCHOOLDROPOUT-Doodles.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* Brew&Co.  Custom Styles */
 .paper-texture {
   background-image: 
@@ -128,6 +169,7 @@
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -153,6 +195,37 @@
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Art School Dropout Font Styling */
+.font-art-school {
+  font-family: 'Art School Dropout', cursive;
+  font-weight: 400;
+}
+
+.font-art-school-skinny {
+  font-family: 'Art School Dropout', cursive;
+  font-weight: 300;
+}
+
+.font-art-school-doodles {
+  font-family: 'Art School Dropout Doodles', cursive;
+  font-weight: 400;
+}
+
+/* Custom text effects for Art School Dropout */
+.art-school-title {
+  font-family: 'Art School Dropout', cursive;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+}
+
+.art-school-subtitle {
+  font-family: 'Art School Dropout', cursive;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.2;
 }
 
 /* Image loading optimization */
