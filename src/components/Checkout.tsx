@@ -56,7 +56,7 @@ Please confirm this order to proceed. Thank you for choosing Brew&Co.! ☕
     `.trim();
 
     const encodedMessage = encodeURIComponent(orderDetails);
-    const messengerUrl = `https://m.me/61580448542963?text=${encodedMessage}`;
+    const messengerUrl = `https://m.me/brewandcotondo?text=${encodedMessage}`;
     
     window.open(messengerUrl, '_blank');
   };
